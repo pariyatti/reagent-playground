@@ -12,6 +12,7 @@
    [org.clojure/core.async "1.3.610"]
    [reagent-forms "0.5.23"]
    [json-html "0.3.5"]
+   [kitchen-async "0.1.0-SNAPSHOT"]
    [lambdaisland/uri "1.4.54"] ;; fetch dep
    [lambdaisland/fetch "0.0.23"]]
 

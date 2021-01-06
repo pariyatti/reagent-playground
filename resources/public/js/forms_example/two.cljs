@@ -3,6 +3,7 @@
             [reagent.core :as r]
             [reagent-forms.core :refer [bind-fields init-field value-of]]
             [lambdaisland.fetch :as fetch]
+            [kitchen-async.promise :as p]
             [cljs.core.async :refer [go]]
             [cljs.core.async.interop :refer-macros [<p!]]))
 
@@ -20,25 +21,25 @@
 (defn input [label type id]
   (row label [:input.form-control {:field type :id id}]))
 
-;; (defn friend-source [text]
-;;   (filter
-;;    #(-> % (.toLowerCase %) (.indexOf text) (> -1))
-;;    ["Alice" "Alan" "Bob" "Beth" "Jim" "Jane" "Kim" "Rob" "Zoe"]))
-
 (def friends (r/atom ["no" "one" "here" "yet"]))
-
-;; (defn friend-source-ajax [text]
-;;   (if (= :all text)
-;;     @friends
-;;     (filter
-;;      #(-> % (.toLowerCase %) (.indexOf text) (> -1))
-;;      @friends)))
 
 (defn reset-friends [result]
   (.log js/console (:body result))
   (let [edn (js->clj (:body result) :keywordize-keys true)
         _ (.log js/console (str "edn = " edn))]
     (reset! friends edn)))
+
+;; function sleep(seconds)
+;; {
+;;   var e = new Date().getTime() + (seconds * 1000);
+;;   while (new Date().getTime() <= e) {}
+;; }
+
+(defn sleep [secs]
+  (let [mils (* secs 1000)
+        e (-> (js/Date.) (.getTime) (+ mils))]
+    (while (< (.getTime (js/Date.)) e)
+      nil)))
 
 (defn friend-source-ajax2 [text]
   (let [_ (.log js/console (str "searching: " text))
@@ -48,6 +49,8 @@
                            {:query-params {:text text}})
                 (js/Promise.resolve)
                 (.then #(reset-friends %)))]
+    ;; as one would expect, this doesn't work:
+    (sleep 1)
     (.log js/console (str "result = " result))
     @friends))
 
@@ -67,22 +70,11 @@
    [:br]])
 
 (defn page []
-  (let [doc (atom {:person {:first-name "John"
-                            :age 35
-                            :email "foo@bar.baz"}
-                   :weight 100
-                   :height 200
-                   :bmi 0.5
-                   :comments "some interesting comments\non this subject"
-                   :radioselection :b
-                   :position [:left :right]
-                   :pick-one :bar
-                   :unique {:position :middle}
-                   :pick-a-few [:bar :baz]
-                   :many {:options :bar}})]
+  (let [doc (atom {:pick-one :bar})]
     (fn []
       [:div
        [:div.page-header [:h1 "Sample Form"]]
+       [:div (str "friends = " @friends)]
 
        [bind-fields
         form-template

@@ -45,4 +45,4 @@ goog.addDependency("../applied_science/js_interop.js", ['applied_science.js_inte
 goog.addDependency("../kitchen_async/protocols/promisable.js", ['kitchen_async.protocols.promisable'], ['cljs.core']);
 goog.addDependency("../kitchen_async/promise.js", ['kitchen_async.promise'], ['kitchen_async.protocols.promisable', 'cljs.core', 'goog.Promise']);
 goog.addDependency("../lambdaisland/fetch.js", ['lambdaisland.fetch'], ['kitchen_async.promise', 'cljs.core', 'lambdaisland.uri', 'lambdaisland.uri.normalize', 'cognitect.transit', 'clojure.set', 'applied_science.js_interop', 'clojure.string']);
-goog.addDependency("../forms_example/two.js", ['forms_example.two'], ['reagent.core', 'cljs.core.async.interop', 'cljs.core', 'reagent_forms.core', 'cljs.core.async', 'lambdaisland.fetch', 'json_html.core']);
+goog.addDependency("../forms_example/two.js", ['forms_example.two'], ['kitchen_async.promise', 'reagent.core', 'cljs.core.async.interop', 'cljs.core', 'reagent_forms.core', 'cljs.core.async', 'lambdaisland.fetch', 'json_html.core']);
