@@ -1,0 +1,14 @@
+html,
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100%;
+}
+
+ul {
+    columns: 3;
+}
+
+li {
+    border: 3px solid #E0B875;
+}
+

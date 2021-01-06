@@ -1,0 +1,1 @@
+{:output-wrapper false, :externs ["closure-js/externs"], :libs ["closure-js/libs"], :output-dir "resources/public/js/", :optimizations :none, :output-to "resources/public/js/app.js", :source-map true, :pretty-print true}
