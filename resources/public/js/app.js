@@ -38,6 +38,7 @@ goog.addDependency("../com/cognitect/transit/impl/writer.js", ['com.cognitect.tr
 goog.addDependency("../com/cognitect/transit.js", ['com.cognitect.transit'], ['com.cognitect.transit.util', 'com.cognitect.transit.impl.reader', 'com.cognitect.transit.impl.writer', 'com.cognitect.transit.types', 'com.cognitect.transit.eq', 'com.cognitect.transit.impl.decoder', 'com.cognitect.transit.caching']);
 goog.addDependency("../cognitect/transit.js", ['cognitect.transit'], ['com.cognitect.transit.eq', 'cljs.core', 'com.cognitect.transit.types', 'com.cognitect.transit', 'goog.math.Long']);
 goog.addDependency("../clojure/set.js", ['clojure.set'], ['cljs.core']);
+goog.addDependency("../forms_example/mediabox.js", ['forms_example.mediabox'], ['reagent.core', 'cljs.core', 'reagent_forms.core', 'clojure.string']);
 goog.addDependency("../lambdaisland/uri/normalize.js", ['lambdaisland.uri.normalize'], ['cljs.core', 'lambdaisland.uri.platform', 'clojure.string']);
 goog.addDependency("../lambdaisland/uri.js", ['lambdaisland.uri'], ['cljs.core', 'lambdaisland.uri.normalize', 'clojure.string']);
 goog.addDependency("../applied_science/js_interop/impl.js", ['applied_science.js_interop.impl'], ['cljs.core']);
@@ -45,4 +46,5 @@ goog.addDependency("../applied_science/js_interop.js", ['applied_science.js_inte
 goog.addDependency("../kitchen_async/protocols/promisable.js", ['kitchen_async.protocols.promisable'], ['cljs.core']);
 goog.addDependency("../kitchen_async/promise.js", ['kitchen_async.promise'], ['kitchen_async.protocols.promisable', 'cljs.core', 'goog.Promise']);
 goog.addDependency("../lambdaisland/fetch.js", ['lambdaisland.fetch'], ['kitchen_async.promise', 'cljs.core', 'lambdaisland.uri', 'lambdaisland.uri.normalize', 'cognitect.transit', 'clojure.set', 'applied_science.js_interop', 'clojure.string']);
-goog.addDependency("../forms_example/two.js", ['forms_example.two'], ['kitchen_async.promise', 'reagent.core', 'cljs.core.async.interop', 'cljs.core', 'reagent_forms.core', 'cljs.core.async', 'lambdaisland.fetch', 'json_html.core']);
+goog.addDependency("../forms_example/two.js", ['forms_example.two'], ['kitchen_async.promise', 'forms_example.mediabox', 'reagent.core', 'cljs.core.async.interop', 'cljs.core', 'reagent_forms.core', 'cljs.core.async', 'lambdaisland.fetch', 'json_html.core']);
+goog.addDependency("../forms_example/view_three.js", ['forms_example.view_three'], ['forms_example.mediabox', 'reagent.core', 'cljs.core', 'reagent_forms.core', 'lambdaisland.fetch', 'json_html.core']);

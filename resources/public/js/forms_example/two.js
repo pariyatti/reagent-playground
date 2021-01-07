@@ -8,6 +8,7 @@ goog.require('lambdaisland.fetch');
 goog.require('kitchen_async.promise');
 goog.require('cljs.core.async');
 goog.require('cljs.core.async.interop');
+goog.require('forms_example.mediabox');
 forms_example.two.row = (function forms_example$two$row(label,input){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.row","div.row",133678515),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.col-md-2","div.col-md-2",-138798418),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"label","label",1718410804),label], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.col-md-5","div.col-md-5",1167007965),input], null)], null);
 });
@@ -42,17 +43,15 @@ forms_example.two.friend_source_ajax2 = (function forms_example$two$friend_sourc
 var _ = console.log(["searching: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(text)].join(''));
 var ___$1 = console.log(["friends = ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,forms_example.two.friends))].join(''));
 var result = Promise.resolve(lambdaisland.fetch.get.call(null,"http://localhost:3000/api",new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"query-params","query-params",900640534),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"text","text",-1790561697),text], null)], null))).then(((function (_,___$1){
-return (function (p1__4039_SHARP_){
-return forms_example.two.reset_friends.call(null,p1__4039_SHARP_);
+return (function (p1__4173_SHARP_){
+return forms_example.two.reset_friends.call(null,p1__4173_SHARP_);
 });})(_,___$1))
 );
-forms_example.two.sleep.call(null,(1));
-
 console.log(["result = ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(result)].join(''));
 
 return cljs.core.deref.call(null,forms_example.two.friends);
 });
-forms_example.two.form_template = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),forms_example.two.row.call(null,"Best friend",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"item-class","item-class",1277553858),new cljs.core.Keyword(null,"input-placeholder","input-placeholder",-965612860),new cljs.core.Keyword(null,"selections","selections",-1277610233),new cljs.core.Keyword(null,"highlight-class","highlight-class",1738202282),new cljs.core.Keyword(null,"data-source","data-source",-658934676),new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"list-class","list-class",1412758252),new cljs.core.Keyword(null,"input-class","input-class",-62053138),new cljs.core.Keyword(null,"id","id",-1388402092)],["typeahead-item","Who's your best friend? You can pick only one",forms_example.two.friends,"highlighted",forms_example.two.friend_source_ajax2,new cljs.core.Keyword(null,"typeahead","typeahead",-1364611797),"typeahead-list","form-control",new cljs.core.Keyword(null,"ta","ta",1022552790)])], null)),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"br","br",934104792)], null)], null);
+forms_example.two.form_template = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),forms_example.two.row.call(null,"Best friend",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"item-class","item-class",1277553858),new cljs.core.Keyword(null,"input-placeholder","input-placeholder",-965612860),new cljs.core.Keyword(null,"selections","selections",-1277610233),new cljs.core.Keyword(null,"highlight-class","highlight-class",1738202282),new cljs.core.Keyword(null,"data-source","data-source",-658934676),new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"list-class","list-class",1412758252),new cljs.core.Keyword(null,"input-class","input-class",-62053138),new cljs.core.Keyword(null,"id","id",-1388402092)],["typeahead-item","Who's your best friend? You can pick only one",forms_example.two.friends,"highlighted",forms_example.two.friend_source_ajax2,new cljs.core.Keyword(null,"mediabox","mediabox",-20067461),"typeahead-list","form-control",new cljs.core.Keyword(null,"ta","ta",1022552790)])], null)),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"br","br",934104792)], null)], null);
 forms_example.two.page = (function forms_example$two$page(){
 var doc = cljs.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"pick-one","pick-one",-101885082),new cljs.core.Keyword(null,"bar","bar",-1386246584)], null));
 return ((function (doc){
