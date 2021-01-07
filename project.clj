@@ -16,7 +16,7 @@
    [lambdaisland/uri "1.4.54"] ;; fetch dep
    [lambdaisland/fetch "0.0.23"]]
 
-  :ring {:handler forms-example.handler/app}
+  :ring {:handler playground.handler/app}
 
   :cljsbuild
   {:builds

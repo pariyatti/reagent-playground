@@ -1,10 +1,10 @@
-(ns forms-example.handler
-  (:require [compojure.core :refer [GET defroutes]]
-            [noir.util.middleware :refer [app-handler]]
-            [noir.response :as noir]
+(ns playground.handler
+  (:require [compojure.core :refer [defroutes GET]]
             [compojure.route :as route]
-            [selmer.parser :as parser]
-            [forms-example.hundy :as hundy]))
+            [noir.response :as noir]
+            [noir.util.middleware :refer [app-handler]]
+            [playground.hundy :as hundy]
+            [selmer.parser :as parser]))
 
 (defn resource [r]
  (-> (Thread/currentThread)
