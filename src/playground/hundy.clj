@@ -201,3 +201,7 @@
 "Alexis"
 "Kayla"
             "Charlotte"])
+
+;; https://search.creativecommons.org/search/image?q=brenda
+;; .search-grid-cells -- outer
+;; div > figure > a > img.search-grid_image
