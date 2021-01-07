@@ -29,18 +29,22 @@
     (.log js/console (str "result = " result))
     @friends))
 
+(defn show-media [item]
+  [:img ])
+
 (def form-template
   [:div
    (row "Best friend"
-        [:div {:field           :mediabox
-               :id              :ta
-               :data-source     friend-source
-               :selections      friends
+        [:div {:field             :mediabox
+               :id                :ta
+               :data-source       friend-source
+               :selections        friends
+               :result-fn         show-media
                :input-placeholder "Who's your best friend? You can pick only one"
-               :input-class     "form-control"
-               :list-class      "typeahead-list"
-               :item-class      "typeahead-item"
-               :highlight-class "highlighted"}])
+               :input-class       "form-control"
+               :list-class        "mediabox-list"
+               :item-class        "mediabox-item"
+               :highlight-class   "highlighted"}])
    [:br]])
 
 (defn page []

@@ -43,8 +43,8 @@ forms_example.two.friend_source_ajax2 = (function forms_example$two$friend_sourc
 var _ = console.log(["searching: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(text)].join(''));
 var ___$1 = console.log(["friends = ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,forms_example.two.friends))].join(''));
 var result = Promise.resolve(lambdaisland.fetch.get.call(null,"http://localhost:3000/api",new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"query-params","query-params",900640534),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"text","text",-1790561697),text], null)], null))).then(((function (_,___$1){
-return (function (p1__4173_SHARP_){
-return forms_example.two.reset_friends.call(null,p1__4173_SHARP_);
+return (function (p1__4201_SHARP_){
+return forms_example.two.reset_friends.call(null,p1__4201_SHARP_);
 });})(_,___$1))
 );
 console.log(["result = ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(result)].join(''));
