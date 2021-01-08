@@ -10,7 +10,7 @@
    [:div.col-md-2 [:label label]]
    [:div.col-md-5 input]])
 
-(def friends (r/atom ["no" "one" "here" "yet"]))
+(def friends (r/atom []))
 
 (defn reset-friends [result]
   (.log js/console (:body result))
@@ -22,7 +22,7 @@
   (let [_ (.log js/console (str "searching: " text))
         _ (.log js/console (str "friends = " @friends))
         result (->
-                (fetch/get "http://localhost:3000/api"
+                (fetch/get "http://localhost:3000/image-search"
                            {:query-params {:text text}})
                 (js/Promise.resolve)
                 (.then #(reset-friends %)))]
@@ -30,7 +30,7 @@
     @friends))
 
 (defn show-media [item]
-  [:img ])
+  [:img {:src (str "/uploads/" item ".png") :width 100 :height 100}])
 
 (def form-template
   [:div
@@ -42,8 +42,8 @@
                :result-fn         show-media
                :input-placeholder "Who's your best friend? You can pick only one"
                :input-class       "form-control"
-               :list-class        "mediabox-list"
-               :item-class        "mediabox-item"
+               :list-class        "typeahead-list" ;; mediabox-list -- need to define
+               :item-class        "typeahead-item"
                :highlight-class   "highlighted"}])
    [:br]])
 
@@ -51,21 +51,16 @@
   (let [doc (atom {:pick-one :bar})]
     (fn []
       [:div
-       [:div.page-header [:h1 "Sample Form"]]
+       [:div.page-header [:h1 "View Three"]]
        [:div (str "friends = " @friends)]
 
        [bind-fields
         form-template
         doc]
 
-       [:button.btn.btn-default
-        {:on-click
-         (fn []
-           (.log js/console "clicked."))}
-         "Lookup"]
-
-       [:hr]
-       [:h1 "Document State"]
-       [edn->hiccup @doc]])))
+       ;; [:hr]
+       ;; [:h1 "Document State"]
+       ;; [edn->hiccup @doc]
+       ])))
 
 (r/render-component [page] (.getElementById js/document "app"))

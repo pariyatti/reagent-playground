@@ -74,7 +74,7 @@
   (let [doc (atom {:pick-one :bar})]
     (fn []
       [:div
-       [:div.page-header [:h1 "Sample Form"]]
+       [:div.page-header [:h1 "View Two"]]
        [:div (str "friends = " @friends)]
 
        [bind-fields

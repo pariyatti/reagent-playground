@@ -26,7 +26,7 @@
     (parser/render-file "templates/app.html"
                         {:forms-css (resource "reagent-forms.css")
                          :json-css (resource "json.human.css")}))
-  (GET "/api*" [text]
+  (GET "/image-search*" [text]
        (noir/json (search hundy/names text)))
   (route/resources "/")
   (route/not-found "Not Found"))

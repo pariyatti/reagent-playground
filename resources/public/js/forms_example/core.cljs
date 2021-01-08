@@ -149,7 +149,7 @@
                    :many {:options :bar}})]
     (fn []
       [:div
-       [:div.page-header [:h1 "Sample Form"]]
+       [:div.page-header [:h1 "View One: Sample Form"]]
 
        [bind-fields
         form-template
