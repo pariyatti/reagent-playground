@@ -1,4 +1,5 @@
-(ns playground.hundy)
+(ns playground.hundy
+  (:require [clojure.java.shell :as shell]))
 
 (def names [
 "James"
@@ -205,3 +206,17 @@
 ;; https://search.creativecommons.org/search/image?q=brenda
 ;; .search-grid-cells -- outer
 ;; div > figure > a > img.search-grid_image
+
+(defn zig []
+  (shell/sh "ls" "-lsa"))
+
+(defn download-pngs []
+  (let [image-dir       "/Users/steven/work/pariyatti/reagent-playground/resources/public/images/"
+        script-dir      "/Users/steven/work/pariyatti/reagent-playground/script/"
+        download-script (str script-dir "download.sh")]
+    (println "Starting downloads...")
+    (doseq [n names]
+      (let [lower (clojure.string/lower-case n)]
+        (shell/sh download-script lower :dir script-dir)
+        (println (format "Downloaded: %s.png" lower))))
+    (println "...done.")))
